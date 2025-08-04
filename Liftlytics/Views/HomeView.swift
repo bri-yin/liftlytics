@@ -1,5 +1,5 @@
 //
-//  WorkoutEditorView.swift
+//  HomeView.swift
 //  Liftlytics
 //
 //  Created by Brian Yin on 7/26/25.
@@ -16,38 +16,38 @@
 
 import SwiftUI
 
-struct WorkoutEditorView: View {
+struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
     var body: some View {
-        NavigationView {
-            // VStack
-            VStack {
-                // Title
-                Text("Liftlytics")
-                    .font(.largeTitle)
-                    .bold()
-                
-                // Button to start workout
-                NavigationLink(destination: WorkoutView()) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 30)
-                            .fill(Color.accentColor.opacity(0.4))
-                            .frame(width: 200, height: 100)
-                        
-                        VStack(spacing: 20) {
-                            Text("Start Workout")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundColor(.accentColor)
-                        }
+        // VStack
+        VStack {
+            // Title
+            Text("Liftlytics")
+                .font(.largeTitle)
+                .bold()
+            
+            // Button to start workout
+            NavigationLink(destination: WorkoutListView()) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 30)
+                        .fill(Color.accentColor.opacity(0.4))
+                        .frame(width: 200, height: 80)
+                    
+                    VStack(spacing: 20) {
+                        Text("New Workout")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.accentColor)
                     }
                 }
-                List
             }
+            // List of 5 previous workouts, for now just information on what exercises, sets, and reps were done.
+            
         }
+        .appBackground()
     }
 }
 
 #Preview {
-    WorkoutEditorView()
+    HomeView()
 }
