@@ -12,6 +12,13 @@ struct LiftlyticsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    print("✅ ContentView appeared")
+                }
         }
+    }
+    
+    init() {
+        
     }
 }

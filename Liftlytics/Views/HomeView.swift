@@ -19,32 +19,48 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
     var body: some View {
+        
         // VStack
-        VStack {
+        /*VStack {
             // Title
             Text("Liftlytics")
-                .font(.largeTitle)
+                .font(.system(size: 60, design: .default))
                 .bold()
-            
-            // Button to start workout
+
+            // Button to choose from workout toI start
             NavigationLink(destination: WorkoutListView()) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
                         .fill(Color.accentColor.opacity(0.4))
-                        .frame(width: 200, height: 80)
+                        .frame(width: 300, height: 80)
                     
                     VStack(spacing: 20) {
-                        Text("New Workout")
-                            .font(.title2)
+                        Text("Start a Workout")
+                            .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.accentColor)
                     }
                 }
             }
             // List of 5 previous workouts, for now just information on what exercises, sets, and reps were done.
-            
+            // Button to choose from workout to start
+            NavigationLink(destination: WorkoutHistoryView()) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 30)
+                        .fill(Color.accentColor.opacity(0.4))
+                        .frame(width: 300, height: 80)
+                    
+                    VStack(spacing: 20) {
+                        Text("Workout History")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.accentColor)
+                    }
+                }
+            }
         }
         .appBackground()
+         */
     }
 }
 

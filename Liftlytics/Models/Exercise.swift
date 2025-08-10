@@ -6,27 +6,19 @@
 //
 
 import Foundation
-import SwiftUI
-import SwiftData
 
-@Model
-final class Exercise {
+// Represents an exercise, simple as that.
+struct Exercise: Identifiable {
+    let id: UUID
+    let name: String
     
-    // unique normalized name for lookups
-    @Attribute(.unique) var normalizedName: String
-    
-    // name that exercise will display
-    var displayName: String
-    
-    // date exercise was created
-    var createdDate: Date
-    
-    init(normalizedName: String, displayName: String, createdDate: Date) {
-        self.normalizedName = normalizedName
-        self.displayName = displayName
-        self.createdDate = createdDate
+    init(
+        id: UUID = UUID(),
+        name: String
+    ) {
+        self.id = id
+        self.name = name
     }
-    
 }
 
 
