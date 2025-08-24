@@ -9,16 +9,15 @@ import SwiftUI
 
 @main
 struct LiftlyticsApp: App {
+    @StateObject var dataManager = DataManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear {
-                    print("✅ ContentView appeared")
-                }
+                ContentView()
+                    .environmentObject(dataManager.exerciseLibrary)
+                    .environmentObject(dataManager.workoutHistory)
+                    .environmentObject(dataManager.workoutLibrary)
+                    .environmentObject(dataManager.setHistory)
         }
-    }
-    
-    init() {
-        
     }
 }

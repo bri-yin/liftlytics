@@ -7,7 +7,8 @@
 
 import Foundation
 
-class DataManager: ObservableObject {
+@MainActor
+final class DataManager: ObservableObject {
     let setHistory: SetHistory
     let workoutHistory: WorkoutHistory
     let exerciseLibrary: ExerciseLibrary
@@ -15,7 +16,7 @@ class DataManager: ObservableObject {
     
     init() {
         self.exerciseLibrary = ExerciseLibrary()
-        self.workoutLibrary = WorkoutLibrary(exerciseLibrary: self.exerciseLibrary)
+        self.workoutLibrary = WorkoutLibrary(exerciseLibrary: exerciseLibrary)
         self.setHistory = SetHistory()
         self.workoutHistory = WorkoutHistory()
     }

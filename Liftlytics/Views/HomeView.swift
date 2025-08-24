@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewViewModel()
+    // @StateObject var viewModel = HomeViewViewModel()
     var body: some View {
        VStack {
+
             // Title
             Text("Liftlytics")
                 .font(.system(size: 60, design: .default))
@@ -53,5 +54,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    PreviewRoot {HomeView()}
 }

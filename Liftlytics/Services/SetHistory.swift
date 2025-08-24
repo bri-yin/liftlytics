@@ -8,5 +8,15 @@
 import Foundation
 
 class SetHistory: ObservableObject {
+    @Published var sets: [ExerciseSet] = []
     
+    func add(_ exerciseSet: ExerciseSet) {
+        sets.append(exerciseSet)
+    }
+    
+    func sort() {
+        sets.sort { setA, setB in
+            setA.timestamp > setB.timestamp
+        }
+    }
 }
