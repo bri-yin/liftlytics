@@ -24,13 +24,10 @@ struct WorkoutListView: View {
         }
         .navigationTitle("List of Workouts")
         .toolbar {
-            Button {
-                
-            } label: {
+            NavigationLink(destination: WorkoutEditorView(exercises: [])){
                 Image(systemName: "plus")
             }
         }
-        .appBackground()
     }
 }
 
