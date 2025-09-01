@@ -31,5 +31,9 @@ class WorkoutLibrary: ObservableObject {
         workouts.append(workout)
     }
     
-    
+    func update(_ workout : Workout) {
+        if let index = workouts.firstIndex(where: { $0.id == workout.id }) {
+            workouts[index] = workout
+        }
+    }
 }

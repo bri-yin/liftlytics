@@ -11,6 +11,7 @@ import SwiftUI
 
 struct WorkoutListView: View {
     @StateObject var viewModel = WorkoutListViewViewModel()
+    @EnvironmentObject var exerciseLibrary: ExerciseLibrary
     @EnvironmentObject var workoutLibrary: WorkoutLibrary
     var body: some View {
         // Need a list of current workouts
@@ -24,7 +25,7 @@ struct WorkoutListView: View {
         }
         .navigationTitle("List of Workouts")
         .toolbar {
-            NavigationLink(destination: WorkoutEditorView(exercises: [])){
+            NavigationLink(destination: WorkoutEditorView(exerciseLibrary: exerciseLibrary, workoutLibrary: workoutLibrary)){
                 Image(systemName: "plus")
             }
         }
