@@ -13,7 +13,7 @@ struct HomeView: View {
        VStack {
 
             // Title
-            Text("Liftlytics")
+            Text("Workout Tracker")
                 .font(.system(size: 60, design: .default))
                 .bold()
            

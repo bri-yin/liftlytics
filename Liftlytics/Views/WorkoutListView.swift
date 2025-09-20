@@ -13,24 +13,33 @@ struct WorkoutListView: View {
     @StateObject var viewModel = WorkoutListViewViewModel()
     @EnvironmentObject var exerciseLibrary: ExerciseLibrary
     @EnvironmentObject var workoutLibrary: WorkoutLibrary
+
     var body: some View {
-        // Need a list of current workouts
-        VStack {
-            List {
-                ForEach(workoutLibrary.workouts) { workout in
+        NavigationStack {
+            List(workoutLibrary.workouts) { workout in
+                NavigationLink(value: workout) {
                     Text(workout.name)
                 }
-                
             }
-        }
-        .navigationTitle("List of Workouts")
-        .toolbar {
-            NavigationLink(destination: WorkoutEditorView(exerciseLibrary: exerciseLibrary, workoutLibrary: workoutLibrary)){
-                Image(systemName: "plus")
+            .navigationDestination(for: Workout.self) { workout in
+                RunWorkoutView(workout: workout)
+                    .onAppear { print("Dest appeared for:", workout.name) }
+            }
+            .navigationTitle("Workouts")
+            .toolbar {                             
+                NavigationLink {
+                    WorkoutEditorView(
+                        exerciseLibrary: exerciseLibrary,
+                        workoutLibrary: workoutLibrary
+                    )
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
         }
     }
 }
+
 
 #Preview {
     PreviewRoot {WorkoutListView()}
